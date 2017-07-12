@@ -1,0 +1,14 @@
+{
+    "name": "pengyc/azs-web-app-demo",
+    "description": "this is a demo for web app in app service in azure stack",
+    "authors": [
+        {
+            "name": "pengyc",
+            "email": "pengyc@rc.inesa.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
