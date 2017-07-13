@@ -5,7 +5,7 @@
  */
 function connect(){
 	try{
-		$conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DBNAME.";charset=".DB_CHARSET, DB_USER, DB_PWD);
+		// $conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DBNAME.";charset=".DB_CHARSET, DB_USER, DB_PWD);
 		print_r("database: Connected...\n");
 		print_r($_ENV);
 	}catch (Exception $e){
