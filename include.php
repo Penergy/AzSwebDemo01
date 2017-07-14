@@ -19,4 +19,5 @@ require_once "configs.php";
 // require_once 'user.inc.php';
 // require_once 'galaxy.func.php';
 $appsetting = getenv("MYSQLCONNSTR_test");
-connectForAzure($appsetting);
+$conn = connectForAzure($appsetting);
+print_r($conn)

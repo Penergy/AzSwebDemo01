@@ -23,7 +23,6 @@ function connectForAzure($appsetting = ""){
 	 	$list[$settingArray[0]] = $settingArray[1];
 	} 
 	$connectInfo = connenctParserForAzure($list);
-	print_r($connectInfo);
 	try{
 		$conn = new PDO($connectInfo[0], $connectInfo[1], $connectInfo[2]);
 		print_r("database: Connected...\n");
