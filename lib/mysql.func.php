@@ -5,7 +5,7 @@
  */
 function connect(){
 	try{
-		// $conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DBNAME.";charset=".DB_CHARSET, DB_USER, DB_PWD);
+		$conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DBNAME.";charset=".DB_CHARSET, DB_USER, DB_PWD);
 		print_r("database: Connected...\n");
 		print_r($_ENV);
 	}catch (Exception $e){
@@ -13,6 +13,39 @@ function connect(){
 		print_r($_ENV);
 	}
 	return $conn;
+}
+
+function connectForAzure($appsetting = ""){
+	$appsettings = explode(";", $appsetting);
+	$list = [];
+	foreach ($appsettings as $key => $setting) {
+	 	$settingArray = explode("=", $setting);
+	 	$list[$settingArray[0]] = $settingArray[1];
+	} 
+	$connectInfo = connenctParserForAzure($list);
+	print_r($connectInfo);
+	try{
+		$conn = new PDO($connectInfo[0], $connectInfo[1], $connectInfo[2]);
+		print_r("database: Connected...\n");
+		print_r($_ENV);
+	}catch (Exception $e){
+		print_r( "Unable to connect: " . $e->getMessage()."...");
+		print_r($_ENV);
+	}
+	return $conn;
+}
+
+function connenctParserForAzure($list = []){
+	$connstr = "";
+	$db_host = array_key_exists("server", $list)?$list["server"]:"";
+	$db_dbname = array_key_exists("database", $list)?$list["database"]:"";
+	$db_charset = DB_CHARSET;
+	$db_user = array_key_exists("user id", $list)?$list["user id"]:"";;
+	$db_pwd = array_key_exists("password", $list)?$list["server"]:"";;
+	$connstr = "mysql:host=".$db_host.";dbname=".$db_dbname.";charset=".$db_charset;
+
+	return [$connstr, $db_user, $db_pwd];
+	
 }
 
 /**

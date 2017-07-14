@@ -18,4 +18,5 @@ require_once "configs.php";
 // require_once 'upload.func.php';
 // require_once 'user.inc.php';
 // require_once 'galaxy.func.php';
-connect();
+$appsetting = getenv("MYSQLCONNSTR_test");
+connectForAzure($appsetting);
