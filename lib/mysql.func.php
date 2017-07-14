@@ -41,7 +41,7 @@ function connenctParserForAzure($list = []){
 	$db_dbname = array_key_exists("database", $list)?$list["database"]:"";
 	$db_charset = DB_CHARSET;
 	$db_user = array_key_exists("user id", $list)?$list["user id"]:"";;
-	$db_pwd = array_key_exists("password", $list)?$list["server"]:"";;
+	$db_pwd = array_key_exists("password", $list)?$list["password"]:"";;
 	$connstr = "mysql:host=".$db_host.";dbname=".$db_dbname.";charset=".$db_charset;
 
 	return [$connstr, $db_user, $db_pwd];
