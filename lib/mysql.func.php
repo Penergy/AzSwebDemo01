@@ -6,16 +6,18 @@
 function connect(){
 	try{
 		$conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_DBNAME.";charset=".DB_CHARSET, DB_USER, DB_PWD);
-		print_r("database: Connected...\n");
-		print_r($_ENV);
+		echo("database: Connected...\n");
+		echo($_ENV);
 	}catch (Exception $e){
-		print_r( "Unable to connect: " . $e->getMessage()."...");
-		print_r($_ENV);
+		echo( "Unable to connect: " . $e->getMessage()."...");
+		echo($_ENV);
 	}
 	return $conn;
 }
 
 function connectForAzure($appsetting = ""){
+
+	$appsetting = "server=127.0.0.1;password=inesa2014;user id=root;port=3306;database=pengtestdb02";
 	$appsettings = explode(";", $appsetting);
 	$list = [];
 	foreach ($appsettings as $key => $setting) {
@@ -25,11 +27,11 @@ function connectForAzure($appsetting = ""){
 	$connectInfo = connenctParserForAzure($list);
 	try{
 		$conn = new PDO($connectInfo[0], $connectInfo[1], $connectInfo[2]);
-		print_r("database: Connected...\n");
-		print_r($_ENV);
+		// echo("database: Connected...\n");
+		// echo($_ENV);
 	}catch (Exception $e){
-		print_r( "Unable to connect: " . $e->getMessage()."...");
-		print_r($_ENV);
+		// echo( "Unable to connect: " . $e->getMessage()."...");
+		// echo($_ENV);
 	}
 	return $conn;
 }
@@ -62,13 +64,14 @@ function insert($table,$array,$conn,$str=null){
 		}
 		$str.=$sep.$key."='".$val."'";
 	}
-	$sql="insert {$table} set {$str} ";
+	$sql="insert into {$table} set {$str} ";
+	print_r($sql);
 	$result=$conn->prepare($sql)->execute();
-	if($result){
-		return true;
-	}else{
-		return false;
-	}
+	// if($result){
+	// 	return true;
+	// }else{
+	// 	return false;
+	// }
 }
 //update imooc_admin set username='king' where id=1
 /**

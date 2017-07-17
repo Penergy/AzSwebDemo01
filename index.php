@@ -11,7 +11,7 @@ require "include.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>INESA R&C Center - Web App Demo</title>
     <!-- Bootstrap Core CSS -->
     <link href="webroot/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -59,7 +59,7 @@ require "include.php";
             <h1>上海仪电(集团)有限公司</h1>
             <h3><strong>中央研究院 Web App Service Demo</strong></h3>
             <br>
-            <a href="#about" class="btn btn-dark btn-lg">Hello
+            <a href="formCase.php" class="btn btn-dark btn-lg">Hello
 </a>
         </div>
     </header>
