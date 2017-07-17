@@ -7,6 +7,10 @@
 
 function insertUser($formData, $conn){
 	$table = "users";
-	print_r($formData);
 	return insert($table, $formData, $conn, null);
+}
+
+function getUserList($conn){
+	$table = "users";
+	return fetchAll($table, $conn);
 }

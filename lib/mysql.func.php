@@ -30,7 +30,7 @@ function connectForAzure($appsetting = ""){
 		// echo("database: Connected...\n");
 		// echo($_ENV);
 	}catch (Exception $e){
-		// echo( "Unable to connect: " . $e->getMessage()."...");
+		echo( "Unable to connect: " . $e->getMessage()."...");
 		// echo($_ENV);
 	}
 	return $conn;
@@ -65,13 +65,12 @@ function insert($table,$array,$conn,$str=null){
 		$str.=$sep.$key."='".$val."'";
 	}
 	$sql="insert into {$table} set {$str} ";
-	print_r($sql);
 	$result=$conn->prepare($sql)->execute();
-	// if($result){
-	// 	return true;
-	// }else{
-	// 	return false;
-	// }
+	if($result){
+		return true;
+	}else{
+		return false;
+	}
 }
 //update imooc_admin set username='king' where id=1
 /**
@@ -131,13 +130,14 @@ function fetchOne($sql,$result_type=MYSQL_ASSOC){
  * @param string $result_type
  * @return multitype:
  */
-function fetchAll($sql,$conn){
-	// $result=$conn->query($sql)->fetchAll(PDO::FETCH_KEY_PAIR);
-	$result = $conn->query($sql)->fetchAll(PDO::FETCH_UNIQUE);
-	foreach ($result as $key => $value) {
-		# code...
+function fetchAll($table,$conn){
+	$sql = "SELECT * FROM ".$table;
+	$result = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+	if($result){
+		return $result;
+	}else{
+		return false;
 	}
-	return $result;
 }
 
 /**
