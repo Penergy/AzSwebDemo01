@@ -17,7 +17,7 @@ function connect(){
 
 function connectForAzure($appsetting = ""){
 
-	$appsetting = "server=127.0.0.1;password=inesa2014;user id=root;port=3306;database=pengtestdb02";
+	// $appsetting = "server=127.0.0.1;password=inesa2014;user id=root;port=3306;database=pengtestdb02";
 	$appsettings = explode(";", $appsetting);
 	$list = [];
 	foreach ($appsettings as $key => $setting) {
