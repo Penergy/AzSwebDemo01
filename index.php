@@ -55,11 +55,11 @@ require "include.php";
     </nav>
     <!-- Header -->
     <header id="top" class="header">
-        <div id="logo" >
+        <!-- <div id="logo" >
                 <a href="index.php" >
                  <img src="webroot/img/logo2.png" alt="INESA">                  
               </a>                  
-            </div>
+            </div> -->
         <div class="text-vertical-center">
             <h1>上海仪电(集团)有限公司</h1>
             <h3><strong>中央研究院 Web App Service Demo</strong></h3>

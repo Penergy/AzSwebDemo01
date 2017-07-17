@@ -74,14 +74,15 @@ switch ($method) {
     </nav>
     <!-- Header -->
     <header id="top" class="header">
-        <div id="logo" >
+       <!--  <div id="logo" >
                 <a href="index.php" >
                  <img src="webroot/img/logo2.png" alt="INESA">                  
               </a>                  
-            </div>
+            </div> -->
+        
         <div class="text-vertical-center">
-            <h1>敬请期待 Azure Stack 混合云方案</h1>
-            <h3><strong>中央研究院</strong></h3>
+            <h1>上海仪电-中央研究院</h1>
+            <h2>敬请期待 Azure Stack 混合云方案</h2>
             <br>
                 <form action="formCase.php" method="post" class="form-inline">
                     <div id="form-group">
